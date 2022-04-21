@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import GetImage from './components/FetchAPI/fetchapi';
+import { UsernameForm } from './components/username';
+import Navbar from './components/Navbar';
+import Story from './components/story';
 
-function App() {
+
+ const App = () => {
+   const [user, setUser] = useState();
+   const [username, setUsername] = useState();
+   const  sumbitHandler = (e) =>{
+     e.preventDefault();
+     setUsername(user)
+   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='full'>
+    <nav classname="nav">
+      <Navbar />
+
+      </nav>
+
+      <div className='storydiv'>
+        <Story />
+      </div>
+
+<div  className="App">
+     <GetImage/>
+</div>
+
+
     </div>
   );
 }
